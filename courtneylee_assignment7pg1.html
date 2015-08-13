@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+<title>courtneylee_assignment7pg1</title>
+<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<script type="text/javascript">
+var animateSpeed = 5; // Higher Number = Faster Animation
+var object = null;
+var fX = null; //Final x position
+var fY = null; //Final y position
+var cX = null; //Current x position
+var cY = null; //Current y position
+var dX = null;
+var dY = null;
+var stepX = null;
+var stepY = null;
+var slope = null;
+
+function initAnimate(objectID,x,y) {
+	object = document.getElementById(objectID);
+	fX = x;
+	fY = y;
+	cX = object.offsetLeft;
+	cY = object.offsetTop;
+	dX = Math.abs(fX-cX);
+	dY = Math.abs(fY-cY);
+	if ((dX == 0) || (dY == 0)) slope = 0;
+	else slope= dY/dX;
+		if (dX>=dY) {
+			if (cX<fX) stepX =  animateSpeed;
+			else if (cX>fX) stepX = - animateSpeed;
+			if (cY<fY) stepY = animateSpeed*slope;
+			else if (cY>fY) stepY =  -animateSpeed*slope;
+		}
+		else if (dX<dY)  {
+			if (cY<fY) stepY= animateSpeed;
+			else if (cY>fY) stepY=  - animateSpeed;
+			if (cX<fX) stepX = animateSpeed/slope;
+			else if (cX>fX) stepX =  -animateSpeed/slope;
+		}
+	animateObject()
+}
+
+function animateObject()  {
+	if (( dX > 0  ) || (dY > 0)) {
+		object.style.left = Math.round(cX) + 'px';
+		object.style.top = Math.round(cY) + 'px';
+		cX = cX + stepX;
+		cY = cY + stepY;
+		dX = dX - Math.abs(stepX);
+		dY = dY - Math.abs(stepY);
+		setTimeout ('animateObject()',0);
+	}
+  else {
+	object.style.left = fX + 'px';
+	object.style.top = fY + 'px';
+}
+	return;
+}
+</script>
+<style type="text/css" media="screen">
+#TGee {
+	position: absolute;
+	left: 900px;
+	top: 1250px;
+	}
+
+</style>
+<link href="courtneylee_assignment7.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
+</head>
+<body onload="initAnimate('TGee',500,500)">
+
+
+<div id="wrapper">
+<div id="header"><h1> Taryn Gee Illustration</h1> </div>
+<div id="nav">
+<ul id="MenuBar1" class="MenuBarHorizontal">
+    <li><a href="courtneylee_assignment7pg1.html">Home</a></li>
+    <li><a href="courtneylee_assignment7pg2.html">Statement</a></li>
+    <li><a href="http://taryntaryn.tumblr.com/">Tumblr</a></li>
+    <li><a href="https://twitter.com/TarynGee">Twitter</a></li>
+    <li><a href="https://www.facebook.com/yaytaryn?fref=ts">Facebook</a></li>
+    </ul>
+</div>
+<div id="main">
+<div id="TGee"> <img src="images/TGee.jpg" height="400" width="300" alt="Taryn Gee Self Portrait" />
+</div>
+<script type="text/javascript">
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+</script>
+</div>
+<div id="sidebar">
+</div>
+
+
+</div>
+</body>
+</html>

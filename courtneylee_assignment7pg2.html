@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CSS, DHTML &amp; Ajax | Drag and Drop</title>
+<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+var object = null;
+var cX =  0;
+var cY = 0;
+
+function initPage () {
+	document.onmousedown = pickIt;
+	document.onmousemove = dragIt;
+	document.onmouseup = dropIt;
+}
+
+function pickIt(evt) {
+	var objectID = (evt.target) ? evt.target.id : ((evt.srcElement) ? evt.srcElement.id : null);
+	var evt = (evt) ? evt : ((window.event) ? event : null);
+	if (objectID.indexOf('chip')!=-1)  object = document.getElementById(objectID);
+	if (object) { 
+		object.style.zIndex = 100;
+		cX = evt.clientX - object.offsetLeft;
+		cY = evt.clientY - object.offsetTop;
+		return;
+	}
+	else {
+		object = null;
+		return;
+	}
+}
+function dragIt(evt) {
+	evt = (evt) ? evt : ((window.event) ? event : null);
+	if (object) {
+		object.style.left = evt.clientX - cX + 'px';
+		object.style.top = evt.clientY - cY + 'px';
+		return false;
+	}
+}
+
+function dropIt() {
+	if (object) {	
+		object.style.zIndex = 0;
+		object = null;
+		return false;
+	}
+}
+
+</script>
+<style type="text/css">
+
+body { 
+	font-size: 1.2em;
+	font-family: Georgia, "Times New Roman", times, serif;
+	color: #000000;
+	background-color: #ccc;
+	margin: 8px;
+}
+.chip {
+	position: absolute;
+	padding: 8px;
+	border: 1px solid #666;
+	border-right: 3px solid #666;
+	border-bottom: 3px solid #F00;
+	background-color: #fff;
+	cursor: move;
+	z-index: 0;
+	}
+
+#chip1 {
+	top: 530px;
+	left: 30px
+	}
+
+#chip2 {
+	top: 601px;
+	left: 124px
+	}
+
+#chip3 {
+	top: 525px;
+	left: 121px
+	}
+
+#chip4 {
+	top: 630px;
+	left: 23px
+	}
+
+#chip5 {
+	top: 533px;
+	left: 208px
+	}
+
+#chip6 {
+	top: 474px;
+	left: 207px
+	}
+</style>
+<link href="courtneylee_assignment7.css" rel="stylesheet" type="text/css" />
+<link href="SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
+</head>
+<body onload="initPage()">
+
+<div id="wrapper">
+<div id="header"><h1>Taryn Gee Illustration</h1></div>
+<div id="nav">
+<ul id="MenuBar1" class="MenuBarHorizontal">
+    <li><a href="courtneylee_assignment7pg1.html">Home</a></li>
+    <li><a href="courtneylee_assignment7pg2.html">Statement</a></li>
+    <li><a href="http://taryntaryn.tumblr.com/">Tumblr</a></li>
+    <li><a href="https://twitter.com/TarynGee">Twitter</a></li>
+    <li><a href="https://www.facebook.com/yaytaryn?fref=ts">Facebook</a></li>
+</ul>
+</div>
+<div id="main">
+<p> Click and move the "blocks" to decode Taryn's message </p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eleifend commodo turpis, ut malesuada nulla volutpat eu. Maecenas tempus nulla nec libero dapibus venenatis. Integer interdum, sapien a bibendum ultrices, tellus ante ultrices quam, id pharetra eros libero et quam. Quisque bibendum nunc nec arcu semper sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam ac porta lacus. Nullam viverra bibendum enim vel congue. Proin eu cursus nunc. Maecenas id est venenatis magna sodales convallis. Etiam non odio ac nunc pretium euismod. Quisque semper sapien non arcu suscipit adipiscing. Aenean elementum cursus consectetur. Mauris quis purus vitae augue ultrices vestibulum sed quis mi. Nunc vel turpis erat. Sed malesuada metus fringilla purus consectetur a aliquet ligula suscipit.</p>
+</div>
+
+
+<div id="sidebar">
+
+<div id="chip1" class="chip">Thank</div> 
+<div id="chip2" class="chip">You</div> 
+<div id="chip3" class="chip">For</div> 
+<div id="chip4" class="chip">Visiting</div> 
+<div id="chip5" class="chip">My</div> 
+<div id="chip6" class="chip">Site</div>
+</div>
+<script type="text/javascript">
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+</script>
+
+</div>
+</body>
+</html>

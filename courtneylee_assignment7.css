@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body{
+	background-image:url(images/header-2.jpg);
+	background-repeat:no-repeat;
+	background-color:#666;
+	background-position:center top; 
+	color:#000;}
+
+h1{
+color:#6CC;
+font-family: "Arial Black", Gadget, sans-serif;
+font-size:50px;
+font-style:normal;
+text-align:left;
+margin-bottom:5em;}
+
+.p2
+{font-family:"Arial Black", Gadget, sans-serif;
+font-size:16px;
+color:#666;}
+
+p{
+font-family:"Arial Black", Gadget, sans-serif;
+font-size:16px;
+color:#FFF;
+padding:1em;}
+
+
+ul#nav li{ display:inline;}
+
+ul#nav li{
+color:#FFF;
+background-color:#ADDFDC;
+font-size:25px;
+font-family: "Arial Black", Gadget, sans-serif;
+display:inline;
+text-transform:uppercase;
+margin-top:50em;}
+
+ul#nav{
+margin-left:0em;}
+
+ul#nav li a:link{
+	padding:1em;
+	text-decoration:none;
+	color:#666;
+	font-weight:bold;}
+	
+	ul#nav li a:hover, ul#nav li a:focus, ul#nav li a:active a:hover 
+	{color:#FFF;}
+	
+a:hover{color:#FF3;}
+#sidebar{
+	float:left;
+	width:300px;
+	height:500px;
+	background-color:#ADDFDC;
+	margin-bottom:35px;
+	margin-top:1em;
+}
+#main{
+	background-color:#999;
+	float:right;
+	width:700px;
+	margin-top:1em;}
+		
+#footer{
+	clear:both;
+	background:none;
+	height:40px;}
+
